@@ -25,11 +25,18 @@ jobs:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment: production
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
     steps:
+      - name: FTP-uppgifter saknas
+        if: env.FTP_SERVER == ''
+        run: echo "::warning::Lägg in FTP_SERVER, FTP_USERNAME och FTP_PASSWORD under Settings → Secrets and variables → Actions för att publicera till freeline.se."
       - uses: actions/checkout@v4
+        if: env.FTP_SERVER != ''
       # Uploads only files that changed since the last deploy. Files on the server that this repo
       # never uploaded (e.g. .htaccess) are left alone — no clean-slate delete.
       - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        if: env.FTP_SERVER != ''
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
