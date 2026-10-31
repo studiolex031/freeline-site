@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreeLine Portfolio</title>
+<meta name="description" content="FreeLine bygger AI-verktyg, samhällsplattformar och säker infrastruktur. Utforska hela portfolion — från beredskapskonsoler till lokala AI-system.">
+<meta name="theme-color" content="#05070d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FreeLine Portfolio">
+<meta property="og:description" content="AI-verktyg, samhällsplattformar och säker infrastruktur — byggt av FreeLine.">
+<meta property="og:url" content="https://freeline.se/">
+<meta property="og:image" content="https://freeline.se/assets/shots/launchengine-d.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://freeline.se/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234fe3ff'/%3E%3Cstop offset='1' stop-color='%239b7bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2305070d'/%3E%3Cpath d='M18 46V18h28M18 32h20' stroke='url(%23g)' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#work">Hoppa till projekten</a>
+<canvas id="field" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="FreeLine — till toppen">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fe3ff"/><stop offset="1" stop-color="#9b7bff"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#0b1120"/><path d="M18 46V18h28M18 32h20" stroke="url(#lg)" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+    <span>FREE<b>LINE</b></span>
+  </a>
+  <nav aria-label="Huvudmeny">
+    <a href="#work">Projekt</a>
+    <a href="#principles">Principer</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow reveal"><span class="pulse"></span> Portfolio · <span id="year"></span></p>
+    <h1 class="headline" aria-label="Vi bygger system som faktiskt fungerar.">
+      <span class="line"><span class="word">Vi</span> <span class="word">bygger</span> <span class="word">system</span></span>
+      <span class="line"><span class="word">som</span> <span class="word grad">faktiskt</span> <span class="word grad">fungerar.</span></span>
+    </h1>
+    <p class="lede reveal">FreeLine designar och driver AI-verktyg, samhällsplattformar och säker infrastruktur — självhostat, ärligt med data och byggt för riktiga människor.</p>
+    <div class="hero-cta reveal">
+      <a class="btn primary" href="#work">Utforska projekten <span aria-hidden="true">↓</span></a>
+      <a class="btn ghost" href="#principles">Hur vi bygger</a>
+    </div>
+    <dl class="stats reveal" id="stats"></dl>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+  <section class="work" id="work">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Utvalda arbeten</p>
+        <h2>Portfolio</h2>
+      </div>
+      <div class="controls">
+        <label class="search">
+          <span class="sr">Sök projekt</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Sök projekt eller teknik…" autocomplete="off">
+        </label>
+      </div>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrera på kategori"></div>
+    <div class="bento" id="grid" aria-live="polite"></div>
+    <p class="empty" id="empty" hidden>Inga projekt matchar. Prova ett annat sökord.</p>
+  </section>
+
+  <section class="principles" id="principles">
+    <p class="eyebrow">Principer</p>
+    <h2>Så bygger vi</h2>
+    <div class="pgrid">
+      <article class="pcard reveal"><span class="pnum">01</span><h3>Verklig data</h3><p>Inga påhittade mätvärden. Kan något inte verifieras visar vi det — i stället för att gissa.</p></article>
+      <article class="pcard reveal"><span class="pnum">02</span><h3>Självhostat först</h3><p>Tjänsterna körs på egen server i Docker. Data lämnar inte miljön utan anledning.</p></article>
+      <article class="pcard reveal"><span class="pnum">03</span><h3>Säkert som standard</h3><p>Lokala bindningar, token-skydd, validering på servern och säkerhetskopior före varje ändring.</p></article>
+      <article class="pcard reveal"><span class="pnum">04</span><h3>Byggt för människor</h3><p>Lättläst svenska, tydliga tomlägen och felmeddelanden, mobilanpassat och tillgängligt.</p></article>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-card reveal">
+      <p class="eyebrow">Nästa steg</p>
+      <h2>Vill du se något <span class="grad">live?</span></h2>
+      <p>Alla projekt körs i FreeLines egen servermiljö. Hör av dig för en genomgång eller en demo av ett specifikt system.</p>
+      <div class="hero-cta" id="contact-cta">
+        <a class="btn primary" href="#work">Tillbaka till projekten</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© <span id="year2"></span> FreeLine</span>
+  <span class="mono">Självhostat · Byggt i Sverige</span>
+</footer>
+
+<dialog id="detail" aria-labelledby="d-title">
+  <div class="d-inner">
+    <button class="d-close" id="d-close" aria-label="Stäng">✕</button>
+    <div class="d-media">
+      <figure class="browser"><div class="chrome"><i></i><i></i><i></i><span id="d-url"></span></div><img id="d-shot" alt=""></figure>
+      <figure class="phone" id="d-phone"><img id="d-mshot" alt=""></figure>
+      <pre class="d-code" id="d-code" hidden><b>$</b> systemctl status freeline-wsl-bridge
+<b>●</b> active (running)
+<b>→</b> poll github.com/…/bridge/jobs.json
+<b>→</b> job: exposure-watch-first-run-scan
+<b>✓</b> result → bridge/results/
+<b>✓</b> inga inkommande portar</pre>
+    </div>
+    <div class="d-body">
+      <div class="d-meta"><span class="badge" id="d-status"></span><span class="mono" id="d-cat"></span></div>
+      <h2 id="d-title"></h2>
+      <p class="d-tag" id="d-tagline"></p>
+      <p id="d-desc"></p>
+      <h3>Funktioner</h3>
+      <ul class="d-feat" id="d-feat"></ul>
+      <h3>Teknik</h3>
+      <div class="d-stack" id="d-stack"></div>
+      <div class="hero-cta" id="d-cta"></div>
+      <div class="d-nav">
+        <button class="btn ghost" id="d-prev">← Föregående</button>
+        <button class="btn ghost" id="d-next">Nästa →</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script src="assets/projects.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
