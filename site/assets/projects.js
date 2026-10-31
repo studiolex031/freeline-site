@@ -219,14 +219,14 @@ window.FREELINE_PROJECTS = [
   {
     id: 'remake',
     name: 'RE:MAKE',
-    tagline: 'Remixa en sida. Tjäna när andra bygger vidare.',
+    tagline: 'Din nya hemsida. Klar på 30 sekunder.',
     category: 'data',
     status: 'demo',
     year: 2026,
     accent: '#ff4ecd',
-    description: 'Remix-studio och creator-marknadsplats: den som remixar en publicerad sida får en egen gren och royalty när nästa person remixar den. Royaltyn betalas ut via Stripe Connect. Finns som installerbar webbapp och Android-app.',
-    features: ['Remix-kedjor med royalty', 'Stripe Connect-utbetalningar', 'Creator-marknadsplats', 'PWA och Android-app'],
-    stack: ['Python', 'Stripe Connect', 'SQLite', 'Android'],
+    description: 'Företagare skriver sitt namn, väljer bransch och stil och ser direkt sin nya hemsida på dator och mobil — och kan köpa den på plats. Motorn bygger exklusiva sajter med riktiga bilder och fem designsystem. En byråstudio skapar säljlänkar till lokala företag, och hemsidan lämnas ut först när Stripe bekräftat betalningen.',
+    features: ['Live-förhandsvisning av kundens egen hemsida', 'Fem designsystem och fem branscher', 'Köp direkt med verifierad Stripe-betalning', 'Byråstudio med säljlänkar och QR', 'Remix-marknadsplats med royalty'],
+    stack: ['Python', 'JavaScript', 'Stripe', 'Android'],
     live: ''
   }
 ];
