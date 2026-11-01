@@ -1,0 +1,4 @@
+# Webbläsare ska alltid hämta senaste projektlistan, skript och stil (index.html pekar på ?v=<hash>)
+<FilesMatch "\.(js|css|html)$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>

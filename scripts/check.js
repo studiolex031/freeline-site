@@ -20,5 +20,11 @@ for (const p of projects) {
   }
 }
 for (const f of ['index.html', 'assets/app.js', 'assets/style.css']) if (!fs.existsSync(path.join(site, f))) errors.push(`missing ${f}`);
+// index.html must reference each asset with ?v=<first 8 of sha1>, so browsers never serve a stale copy.
+const html = fs.readFileSync(path.join(site, 'index.html'), 'utf8');
+for (const f of ['style.css', 'projects.js', 'app.js']) {
+  const v = require('crypto').createHash('sha1').update(fs.readFileSync(path.join(site, 'assets', f))).digest('hex').slice(0, 8);
+  if (!html.includes(`assets/${f}?v=${v}`)) errors.push(`index.html: assets/${f} needs ?v=${v} (run: python3 scripts/bust.py)`);
+}
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`OK: ${projects.length} projects, all screenshots present.`);
