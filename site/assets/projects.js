@@ -193,15 +193,15 @@ window.FREELINE_PROJECTS = [
   {
     id: 'kommunradar',
     name: 'Kommunradar',
-    tagline: 'Offentliga upphandlingar i inkorgen varje morgon.',
+    tagline: 'Offentliga upphandlingar i inkorgen varje morgon. Prova 7 dagar gratis.',
     category: 'data',
-    status: 'demo',
+    status: 'live',
     year: 2026,
     accent: '#fbbf24',
     description: 'Hämtar varje svensk upphandling från EU:s databas TED och filtrerar fram öppna anbudsförfrågningar med län, kategori, sista anbudsdag och uppskattat värde. Prenumeranter får de nya affärer som matchar deras bransch mejlade varje morgon.',
-    features: ['Öppna upphandlingar uppdaterade dagligen', 'Live-sök i riktig data', 'Dagligt matchat mejlutskick', 'Prenumeration via Stripe'],
+    features: ['7 dagar gratis, sedan 990 kr/mån', 'Öppna upphandlingar uppdaterade dagligen', 'Live-sök i riktig data', 'Dagligt matchat mejlutskick'],
     stack: ['Python', 'TED API', 'GitHub Actions', 'Stripe'],
-    live: ''
+    live: 'https://kommunradar.online'
   },
   {
     id: 'liquidation-guard',
