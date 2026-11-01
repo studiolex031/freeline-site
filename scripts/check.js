@@ -14,6 +14,7 @@ for (const p of projects) {
   for (const field of ['id', 'name', 'tagline', 'description']) if (!p[field]) errors.push(`${p.id}: missing ${field}`);
   if (!cats[p.category]) errors.push(`${p.id}: unknown category ${p.category}`);
   if (!status[p.status]) errors.push(`${p.id}: unknown status ${p.status}`);
+  if (p.livePayments && !/^https:\/\//.test(p.live || '')) errors.push(`${p.id}: livePayments requires an https live URL`);
   if (!p.noShot) for (const s of ['d', 'm']) {
     if (!fs.existsSync(path.join(site, 'assets', 'shots', `${p.id}-${s}.webp`))) errors.push(`${p.id}: missing shots/${p.id}-${s}.webp`);
   }

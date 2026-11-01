@@ -29,5 +29,6 @@ Första körningen laddar upp alla filer en gång; därefter bara det som ändra
 
 ## Lägga till ett projekt
 1. Lägg till ett objekt i `site/assets/projects.js` (`category` och `status` måste finnas i listorna längst ner).
+   **Riktiga betalningar:** när ett projekt tar emot riktiga (live) betalningar, sätt `live: 'https://…'` och `livePayments: true`. Kortet får då en LIVE-box överst och en länk till sidan under kortet.
 2. Lägg skärmbilderna i `site/assets/shots/` som `<id>-d.webp` och `<id>-m.webp`.
 3. Kör `node scripts/check.js`, commit och push — sajten uppdateras automatiskt.

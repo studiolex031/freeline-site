@@ -38,7 +38,14 @@
     const media = p.noShot
       ? `<div class="shot code"><pre><b>$</b> bridge_agent --poll\n<b>→</b> job exposure-watch-scan\n<b>✓</b> result committed\n<b>→</b> outbound HTTPS only\n<b>✓</b> no open ports</pre></div>`
       : `<div class="shot"><img src="${shot(p, 'd')}" alt="Skärmbild av ${esc(p.name)}" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async" width="1280" height="800"></div>`;
-    return `<a class="card${featured.has(p.id) ? ' feature' : ''}" href="#projekt/${p.id}" data-id="${p.id}" style="--accent:${p.accent}" aria-label="${esc(p.name)} — visa detaljer">
+    // livePayments: the project takes real payments — LIVE box on top and a link to the site under the card.
+    const host = p.live ? p.live.replace(/^https?:\/\//, '').replace(/\/$/, '') : '';
+    const liveBox = p.livePayments ? `<span class="livebox"><span class="dot"></span>LIVE</span>` : '';
+    const liveLink = p.livePayments && p.live
+      ? `<a class="golive" href="${esc(p.live)}" target="_blank" rel="noopener">Besök ${esc(host)} <span aria-hidden="true">↗</span></a>` : '';
+    return `<div class="card${featured.has(p.id) ? ' feature' : ''}${p.livePayments ? ' paid' : ''}" data-id="${p.id}" style="--accent:${p.accent}">
+      <a class="cardlink" href="#projekt/${p.id}" aria-label="${esc(p.name)} — visa detaljer"></a>
+      ${liveBox}
       ${media}
       <span class="arrow" aria-hidden="true">↗</span>
       <span class="cbody">
@@ -47,7 +54,8 @@
         <p>${esc(p.tagline)}</p>
         <span class="tags">${p.stack.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</span>
       </span>
-    </a>`;
+      ${liveLink}
+    </div>`;
   }).join('');
   const cards = [...document.querySelectorAll('.card')];
 
@@ -155,7 +163,7 @@
       $('#d-mshot').src = shot(p, 'm'); $('#d-mshot').alt = `${p.name} på mobil`;
     }
     $('#d-cta').innerHTML = p.live
-      ? `<a class="btn primary" href="${esc(p.live)}" target="_blank" rel="noopener">Öppna live-demo ↗</a>`
+      ? `<a class="btn primary" href="${esc(p.live)}" target="_blank" rel="noopener">${p.livePayments ? 'Besök sidan' : 'Öppna live-demo'} ↗</a>`
       : `<a class="btn ghost" href="#contact" data-close>Demo på begäran</a>`;
     if (!dlg.open) dlg.showModal();
     dlg.querySelector('.d-body').scrollTop = 0;
@@ -166,9 +174,12 @@
   }
   dlg.addEventListener('close', () => {
     if (location.hash.startsWith('#projekt/')) history.replaceState(null, '', location.pathname + location.search);
-    const c = cards.find(x => x.dataset.id === current); if (c) c.focus({ preventScroll: true });
+    const c = cards.find(x => x.dataset.id === current); if (c) c.querySelector('.cardlink').focus({ preventScroll: true });
   });
-  $('#grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) { e.preventDefault(); open(c.dataset.id); } });
+  $('#grid').addEventListener('click', e => {
+    if (e.target.closest('.golive')) return; // real link to the live site
+    const c = e.target.closest('.card'); if (c) { e.preventDefault(); open(c.dataset.id); }
+  });
   $('#d-close').addEventListener('click', close);
   dlg.addEventListener('click', e => {
     if (e.target === dlg) close();

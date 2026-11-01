@@ -201,7 +201,8 @@ window.FREELINE_PROJECTS = [
     description: 'Hämtar varje svensk upphandling från EU:s databas TED och filtrerar fram öppna anbudsförfrågningar med län, kategori, sista anbudsdag och uppskattat värde. Prenumeranter får de nya affärer som matchar deras bransch mejlade varje morgon.',
     features: ['7 dagar gratis, sedan 990 kr/mån', 'Öppna upphandlingar uppdaterade dagligen', 'Live-sök i riktig data', 'Dagligt matchat mejlutskick'],
     stack: ['Python', 'TED API', 'GitHub Actions', 'Stripe'],
-    live: 'https://kommunradar.online'
+    live: 'https://kommunradar.online',
+    livePayments: true  // tar emot riktiga betalningar → LIVE-box och länk under kortet
   },
   {
     id: 'liquidation-guard',

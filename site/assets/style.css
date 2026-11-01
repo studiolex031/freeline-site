@@ -126,7 +126,7 @@ h2 { font-size: clamp(38px, 5.4vw, 72px); letter-spacing: -.04em; line-height: 1
   background: radial-gradient(300px circle at var(--mx) var(--my), var(--accent), transparent 60%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
 }
-.card:hover::before, .card:hover::after, .card:focus-visible::before { opacity: 1; }
+.card:hover::before, .card:hover::after, .card:focus-within::before { opacity: 1; }
 .card:hover { border-color: transparent; }
 .shot { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #0b1120; border-bottom: 1px solid var(--line); }
 .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transform: scale(1.02); transition: transform 1.2s var(--ease), filter .6s; filter: saturate(.92); }
@@ -148,7 +148,17 @@ h2 { font-size: clamp(38px, 5.4vw, 72px); letter-spacing: -.04em; line-height: 1
 .badge.demo { color: var(--cyan); border-color: rgba(79, 227, 255, .35); }
 .badge.prototype { color: #ffc35a; border-color: rgba(255, 195, 90, .35); }
 .arrow { position: absolute; right: 18px; top: 18px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(5, 7, 13, .7); border: 1px solid var(--line2); opacity: 0; transform: translate(-6px, 6px); transition: all .35s var(--ease); backdrop-filter: blur(8px); }
-.card:hover .arrow, .card:focus-visible .arrow { opacity: 1; transform: none; }
+.card:hover .arrow, .card:focus-within .arrow { opacity: 1; transform: none; }
+.cardlink { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.cardlink:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* Projects taking real payments */
+.livebox { position: absolute; top: 14px; left: 14px; z-index: 4; display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 9px; background: var(--lime); color: #071006; font: 800 12px var(--mono); letter-spacing: .16em; box-shadow: 0 6px 24px rgba(182, 243, 90, .45); pointer-events: none; }
+.livebox .dot { width: 8px; height: 8px; border-radius: 50%; background: #071006; animation: livepulse 1.6s ease-in-out infinite; }
+@keyframes livepulse { 50% { opacity: .25; } }
+.card.paid { border-color: rgba(182, 243, 90, .45); }
+.golive { position: relative; z-index: 4; display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 22px 22px; padding: 13px 16px; border-radius: 12px; background: rgba(182, 243, 90, .12); border: 1px solid rgba(182, 243, 90, .45); color: var(--lime); font-weight: 700; text-decoration: none; transition: background .25s, transform .25s; overflow-wrap: anywhere; }
+.golive:hover, .golive:focus-visible { background: var(--lime); color: #071006; transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) { .livebox .dot { animation: none; } }
 .empty { text-align: center; color: var(--muted); padding: 50px 0; }
 .card.hide { display: none; }
 
