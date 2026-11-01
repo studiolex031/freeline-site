@@ -109,7 +109,8 @@ window.FREELINE_PROJECTS = [
     description: 'Creators laddar upp sin egen Snapchat-export och får en månad-för-månad-rekonstruktion av intäkterna med tydlig spårbarhet. Varje belopp klassas som betalning, överenskommet, potentiell order eller oklart — belopp som inte kan verifieras markeras, inget gissas fram. Gratis förhandsvisning och engångsköp via Stripe.',
     features: ['Import av ZIP-exporter direkt i webbläsaren', 'Fyra bevisklasser per belopp', 'Månadstidslinje och CSV-export', 'Gratis förhandsvisning före betalning', 'Engångsköp via Stripe'],
     stack: ['React', 'Supabase', 'Stripe', 'Vercel'],
-    live: ''
+    live: 'https://lionsanddragons.se',
+    livePayments: true  // tar emot riktiga betalningar → LIVE-box och länk under kortet
   },
   {
     id: 'arbitrage-pulse',
